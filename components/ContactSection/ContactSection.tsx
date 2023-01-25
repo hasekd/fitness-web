@@ -19,21 +19,21 @@ type Inputs = {
   message: string;
 };
 
-const ContactSection = () => {
+const ContactSection = ({ title, width }: any) => {
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
     <Box maxW={"130rem"} m={"0 auto"} textAlign={"center"} pt={"3rem"}>
-      <Box maxW={"13.8rem"} m={"0 auto"}>
+      <Box maxW={width} m={"0 auto"}>
         <Text
           textTransform={"uppercase"}
           fontSize={"3rem"}
           mb={"1rem"}
           fontWeight={600}
         >
-          Kontakt
+          {title}
         </Text>
         <Divider borderColor={theme.color.primary.blue} borderWidth={"2px"} />
       </Box>
@@ -88,10 +88,10 @@ const ContactSection = () => {
             />
             <Button
               mt="3.5rem"
-              p={{ base: "2.1rem 4rem", sm: "2.3rem 5.7rem" }}
+              p={{ base: "2rem 3.5rem", sm: "2.1rem 5rem" }}
               fontSize={"1.7rem"}
               bgColor={"transparent"}
-              borderRadius={"5rem"}
+              borderRadius={"0.5rem"}
               fontWeight={500}
               alignSelf={"center"}
               border={`2px solid ${theme.color.primary.blue}`}

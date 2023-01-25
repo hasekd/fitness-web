@@ -1,11 +1,17 @@
 import { Box, Divider, Flex, Text } from "@chakra-ui/react";
 import { theme } from "../../styles/theme";
 import React from "react";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <Box bgColor={"#222222"} id={"about"}>
+    <Box bgColor={theme.color.primary.white} id={"about"}>
       <Flex
+        as={motion.div}
+        initial={{ opacity: 0, y: -100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={"0.2s"}
+        viewport={{ once: true, amount: 0.8 }}
         maxW={"130rem"}
         m={"0 auto"}
         textAlign={"center"}
@@ -13,7 +19,7 @@ const About = () => {
         flexDir={"column"}
         justify={"center"}
         align={"center"}
-        textColor={"#fff"}
+        p={"3rem 0"}
       >
         <Box mb={"3rem"}>
           <Text

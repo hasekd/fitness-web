@@ -6,6 +6,7 @@ const color = {
     black: "#000000",
     blue: "#0c8599",
     gray: "#f9f9f9",
+    blackBg: "#222222",
   },
   secondary: {
     danger: "#dc3545",

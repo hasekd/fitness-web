@@ -5,7 +5,7 @@ import React from "react";
 const ContactPage = () => {
   return (
     <Layout>
-      <ContactSection />
+      <ContactSection title={"kontakt"} width={"13.8rem"} />
     </Layout>
   );
 };
