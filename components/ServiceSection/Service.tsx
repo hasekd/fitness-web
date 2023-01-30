@@ -12,7 +12,7 @@ import React from "react";
 import ContactSection from "../ContactSection/ContactSection";
 import ServiceCard from "./ServiceCard";
 
-const Serivice2 = () => {
+const Service = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -65,4 +65,4 @@ const Serivice2 = () => {
   );
 };
 
-export default Serivice2;
+export default Service;
