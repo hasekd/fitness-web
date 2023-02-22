@@ -2,8 +2,9 @@ import { Box, Flex, Heading, Text, TextProps } from "@chakra-ui/react";
 import Link from "next/link";
 import { theme } from "../../../styles/theme";
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import MobileNavbar from "./MobileNavbar";
+import HomeMobileNavbar from "./HomeMobileNavbar";
 import { useWindowSize } from "@/hooks/useWindowSize";
+import { motion } from "framer-motion";
 
 const LinkStyles: TextProps = {
   textTransform: "uppercase",
@@ -29,18 +30,37 @@ const LinkStyles: TextProps = {
 
 const HomeNavbar = () => {
   const size = useWindowSize();
+  const [scrollPos, setScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPos(window.pageYOffset);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const childContainer = {
+    // hidden: { opacity: 0, x: -200 },
+    visible: {
+      y: scrollPos > 400 ? [-100, 0] : "",
+      transition: { type: "spring", stiffness: 50 },
+    },
+  };
 
   return (
     <>
       {size > 767 ? (
         <Box
-          pos={"sticky"}
+          pos={scrollPos > 400 ? "fixed" : "absolute"}
           top={0}
           zIndex={10}
-          boxShadow={theme.shadow.boxShadow}
+          boxShadow={scrollPos > 400 ? theme.shadow.boxShadow : ""}
           w={"100%"}
-          bgColor={"#fff"}
-          textColor={"black"}
+          bgColor={scrollPos > 400 ? "white" : ""}
+          textColor={scrollPos > 400 ? "black" : "white"}
           transition={"all 0.3s ease-out"}
         >
           <Flex
@@ -50,6 +70,10 @@ const HomeNavbar = () => {
             maxW={"130rem"}
             m={"0 auto"}
             p={"0 2rem"}
+            as={motion.div}
+            variants={childContainer}
+            animate="visible"
+            // animate={{ y: scrollPos > 400 ? [-100, 0] : "" }}
           >
             <Link href={"/"}>
               <Heading>LOGO</Heading>
@@ -71,7 +95,7 @@ const HomeNavbar = () => {
           </Flex>
         </Box>
       ) : (
-        <MobileNavbar />
+        <HomeMobileNavbar />
       )}
     </>
   );

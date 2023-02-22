@@ -2,6 +2,7 @@ import { Box, Center, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import React from "react";
+import Navbar from "../Navbar/HomeNavbar";
 
 const Header = () => {
   return (
@@ -19,32 +20,33 @@ const Header = () => {
         height={2000}
         style={{ maxHeight: "100vh" }}
       />
-      <Heading
-        as={motion.h1}
-        animate={{ opacity: [0, 1] }}
-        transition="0.5s ease-out"
-        pos={"absolute"}
-        top={"40%"}
-        left={"50%"}
-        transform={"translate(-50%, -40%)"}
-        fontSize={{ base: "2rem", md: "5rem", lg: "6rem" }}
-        textColor={"#fff"}
-      >
-        Daniel Hasek
-      </Heading>
+      <Center>
+        <Heading
+          as={motion.h1}
+          animate={{ opacity: [0, 1] }}
+          transition="0.5s ease-out"
+          pos={"absolute"}
+          top={{ base: "50%", sm: "40%" }}
+          // left={"50%"}
+          transform={"translate(0, -40%)"}
+          fontSize={{ base: "2rem", sm: "3rem", md: "5rem", lg: "6rem" }}
+          textColor={"#fff"}
+        >
+          Jana Hornsteinerová
+        </Heading>
+      </Center>
       <Center>
         <Text
           as={motion.h1}
           animate={{ opacity: [0, 1] }}
           transition="0.5s ease-out"
           pos={"absolute"}
-          top={"50%"}
-          left={"50%"}
-          transform={"translate(-50%, -50%)"}
-          fontSize={{ base: "2rem", md: "5rem", lg: "6rem" }}
+          top={{ base: "65%", sm: "55%" }}
+          transform={"translate(0, -55%)"}
+          fontSize={{ base: "2rem", sm: "3rem", md: "5rem", lg: "6rem" }}
           textColor={"#fff"}
         >
-          Soukromý trenér
+          Soukromá trenérka
         </Text>
       </Center>
     </Box>

@@ -14,6 +14,8 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const LinkStyles: TextProps = {
   textTransform: "uppercase",
@@ -37,22 +39,33 @@ const LinkStyles: TextProps = {
   },
 };
 
-const MobileNavbar = () => {
+const HomeMobileNavbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [scrollPos, setScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPos(window.pageYOffset);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
       <Flex
-        pos={"sticky"}
+        pos={"fixed"}
         top={0}
         zIndex={10}
         w={"100%"}
         justify={"space-between"}
         align={"center"}
         p={"2rem"}
-        bgColor={"#fff"}
-        textColor={"#000"}
-        boxShadow={theme.shadow.boxShadow}
+        bgColor={scrollPos > 250 ? "white" : ""}
+        textColor={scrollPos > 250 ? "black" : "white"}
+        boxShadow={scrollPos > 250 ? theme.shadow.boxShadow : ""}
         transition={"all 0.3s ease-out"}
       >
         <Link href={"/"}>
@@ -104,4 +117,4 @@ const MobileNavbar = () => {
   );
 };
 
-export default MobileNavbar;
+export default HomeMobileNavbar;

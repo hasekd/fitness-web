@@ -1,20 +1,9 @@
-import {
-  Box,
-  Button,
-  Divider,
-  Flex,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, Divider, Flex, Text } from "@chakra-ui/react";
 import { theme } from "@/styles/theme";
 import React from "react";
-import ContactSection from "../ContactSection/ContactSection";
 import ServiceCard from "./ServiceCard";
 
 const Service = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
     <>
       <Box maxW={"11.5rem"} m={"3rem auto 0"}>
