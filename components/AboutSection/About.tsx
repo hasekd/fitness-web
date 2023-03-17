@@ -45,7 +45,7 @@ const About = () => {
           quas animi iste cum asperiores alias? Reiciendis eligendi accusamus
           deleniti minima, asperiores voluptates.
         </Text>
-        <Text>Test</Text>
+        <Text>Test2</Text>
       </Flex>
     </Box>
   );
