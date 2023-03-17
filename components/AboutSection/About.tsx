@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const About = () => {
-  console.log("xdddd");
+  console.log("Hello test");
   return (
     <Box bgColor={theme.color.primary.white} id={"about"}>
       <Flex
@@ -46,7 +46,7 @@ const About = () => {
           quas animi iste cum asperiores alias? Reiciendis eligendi accusamus
           deleniti minima, asperiores voluptates.
         </Text>
-        <Text>Test3</Text>
+        <Text>Test</Text>
       </Flex>
     </Box>
   );

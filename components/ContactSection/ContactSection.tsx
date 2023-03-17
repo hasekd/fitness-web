@@ -105,7 +105,7 @@ const ContactSection = ({ title, width }: any) => {
             >
               Odeslat
             </Button>
-            <Text>I am best</Text>
+            <Text>Lol what is this</Text>
           </Flex>
         </FormControl>
       </form>
